@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzizaKS-LTD - Gadget Store</title>
+    <link rel="icon" href="Aziza.jpg" type="image/jpg">
+    <!-- Font Awesome CDN for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Make sure styles.css is correctly linked -->in.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-section="home">AzizaKS-LTD</a></li>
+                <li><a href="Blogpage.html" data-section="blog">Blog</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
+                <li><a href="Accountspage.html" data-section="account">My Account</a></li>
+                <li><a href="AboutUspage.html" data-section="about">About Us</a></li>
+                <li><a href="Searchpage.html" data-section="search">Search</a></li>
+                <li><a href="Wishlistpage.html" data-section="wishlist">Wishlist</a></li>
+                <li><a href="Shippingpage.html" data-section="shipping">Shipping</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-section">
+            <h1>Latest Blog Posts</h1>
+            <div id="blog-posts" class="blog-posts">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // Sample blog posts data
+        const blogPosts = [
+            {
+                title: "The Future of Gadgets: What to Expect in 2024",
+                date: "August 1, 2024",
+                content: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year...",
+                fullContent: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year. From AI advancements to the next generation of smart devices, the future is looking bright for gadget enthusiasts..."
+            },
+            {
+                title: "Top 10 Must-Have Gadgets for Tech Enthusiasts",
+                date: "July 20, 2024",
+                content: "Check out our list of the top 10 gadgets that every tech lover should own...",
+                fullContent: "Check out our list of the top 10 gadgets that every tech lover should own. These include the latest in wearable tech, smart home devices, and much more. Stay ahead of the curve with these must-have gadgets..."
+            },
+            {
+                title: "How to Choose the Right Laptop for Your Needs",
+                date: "July 5, 2024",
+                content: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice...",
+                fullContent: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice based on your needs, whether you're a gamer, a professional, or just need a basic machine for daily use..."
+            }
+        ];
+
+        // Function to display blog posts
+        function displayBlogPosts() {
+            const blogPostsContainer = document.getElementById('blog-posts');
+            blogPostsContainer.innerHTML = '';
+
+            blogPosts.forEach((post, index) => {
+                blogPostsContainer.innerHTML += `
+                    <article class="blog-post">
+                        <h2>${post.title}</h2>
+                        <p><em>${post.date}</em></p>
+                        <p>${post.content}</p>
+                        <button onclick="readMore(${index})" class="read-more-button">Read More</button>
+                    </article>
+                `;
+            });
+        }
+
+        // Function to display full blog post
+        function readMore(index) {
+            const post = blogPosts[index];
+            const blogPostsContainer = document.getElementById('blog-posts');
+            blogPostsContainer.innerHTML = `
+                <article class="full-blog-post">
+                    <h2>${post.title}</h2>
+                    <p><em>${post.date}</em></p>
+                    <p>${post.fullContent}</p>
+                    <button onclick="displayBlogPosts()" class="back-button">Back to Blog</button>
+                </article>
+            `;
+        }
+
+        // Initialize blog page
+        displayBlogPosts();
+    </script>
+</body>
+</html>

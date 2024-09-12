@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzizaKS-LTD - Gadget Store</title>
+    <link rel="icon" href="Aziza.jpg" type="image/jpg">
+    <!-- Font Awesome CDN for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Make sure styles.css is correctly linked -->
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-section="home">AzizaKS-LTD</a></li>
+                <li><a href="Blogpage.html" data-section="blog">Blog</a></li>
+                <li><a href="Contactpage.html" data-section="contact">Contact</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
+                <li><a href="Accountspage.html" data-section="account">My Account</a></li>
+                <li><a href="AboutUspage.html" data-section="about">About Us</a></li>
+                <li><a href="Searchpage.html" data-section="search">Search</a></li>
+                <li><a href="Wishlistpage.html" data-section="wishlist">Wishlist</a></li>
+                <li><a href="Shippingpage.html" data-section="shipping">Shipping</a></li>
+            </ul>
+        </nav>
+        </nav>
+    </header>
+    <main>
+        <section id="contact" class="contact-section">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Whether you have a question about products, pricing, or anything else, our team is ready to answer all your questions.</p>
+            <div class="contact-details">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p><strong>Phone:</strong> +27 820569497 / +27 112316625</p>
+                    <p><strong>Email:</strong> <a href="mailto:info@azizaks-ltd.com">info@azizaks-ltd.com</a></p>
+                    <p><strong>Address:</strong> 123 Gadget Avenue, Johannesburg, South Africa</p>
+                </div>
+                <div class="social-media">
+                    <h2>Follow Us</h2>
+                    <ul class="social-icons">
+                        <li><a href="https://facebook.com/AzizaKS-LTD" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/AzizaKS-LTD" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://instagram.com/AzizaKS-LTD" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://linkedin.com/company/AzizaKS-LTD" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form action="send_message.php" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="https://facebook.com/AzizaKS-LTD" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://twitter.com/AzizaKS-LTD" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com/AzizaKS-LTD" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://linkedin.com/company/AzizaKS-LTD" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

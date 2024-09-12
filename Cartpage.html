@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzizaKS-LTD - Shopping Cart</title>
+    <link rel="icon" href="Aziza.jpg" type="image/jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-section="home">AzizaKS-LTD</a></li>
+                <li><a href="Blogpage.html" data-section="blog">Blog</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
+                <li><a href="Accountspage.html" data-section="account">My Account</a></li>
+                <li><a href="AboutUspage.html" data-section="about">About Us</a></li>
+                <li><a href="Searchpage.html" data-section="search">Search</a></li>
+                <li><a href="Wishlistpage.html" data-section="wishlist">Wishlist</a></li>
+                <li><a href="Shippingpage.html" data-section="shipping">Shipping</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Cart Section -->
+        <section class="cart">
+            <h2>Your Shopping Cart</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+            <div class="cart-summary">
+                <p><strong>Total:</strong> R<span id="cart-total">0.00</span></p>
+				<script src="app.js"></script>
+                <button class="checkout-button">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="https://www.facebook.com/AzizaKS-LTD" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.twitter.com/AzizaKS-LTD" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/AzizaKS-LTD" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/AzizaKS-LTD" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </footer>
+</body>
+</html>

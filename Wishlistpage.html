@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzizaKS-LTD - Gadget Store</title>
+    <link rel="icon" href="Aziza.jpg" type="image/jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-section="home">AzizaKS-LTD</a></li>
+                <li><a href="Blogpage.html" data-section="blog">Blog</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
+                <li><a href="Accountspage.html" data-section="account">My Account</a></li>
+                <li><a href="AboutUspage.html" data-section="about">About Us</a></li>
+                <li><a href="Searchpage.html" data-section="search">Search</a></li>
+                <li><a href="Wishlistpage.html" data-section="wishlist">Wishlist</a></li>
+                <li><a href="Shippingpage.html" data-section="shipping">Shipping</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="wishlist" class="wishlist-section">
+            <h1>Wishlist</h1>
+            <div class="wishlist-items">
+               
+                <div class="wishlist-item">
+                    <img src="product-image.jpg" alt="Product Name">
+                    <div class="wishlist-item-details">
+                        <h2>Product Name</h2>
+                        <p>Description of the product.</p>
+                        <button class="remove-wishlist-item">Remove</button>
+                        <a href="product-page.html" class="view-details">View Details</a>
+                    </div>
+                </div>
+            
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
+        <ul class="social-icons">
+		     <li>
+            <i class="fas fa-phone"></i> +27 820569497
+        </li>
+        <li>
+            <i class="fas fa-phone"></i> +27 112316625
+        </li>
+        <li>
+            <i class="fas fa-envelope"></i> <a href="mailto:info@AzizaKS.co.za">info@AzizaKS.co.za</a>
+        </li>
+            <li><a href="https://facebook.com/AzizaKS-LTD" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://twitter.com/AzizaKS-LTD" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com/AzizaKS-LTD" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://linkedin.com/company/AzizaKS-LTD" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const removeButtons = document.querySelectorAll('.remove-wishlist-item');
+            
+            removeButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const item = event.target.closest('.wishlist-item');
+                    if (item) {
+                        item.remove();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
