@@ -52,10 +52,11 @@ function updateCartUI() {
 
         cartTotal.textContent = total.toFixed(2);
     }
-}
-  document.getElementById('checkout-button').addEventListener('click', function() {
+    document.getElementById('checkout-button').addEventListener('click', function() {
             // Redirect to the checkout page
   window.location.href = 'Checkoutpage.html';  // Make sure the path is correct		
+}
+  
 
 // Function to remove items from the cart
 function removeFromCart(productName) {
