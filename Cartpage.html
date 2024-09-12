@@ -25,6 +25,7 @@
         </nav>
     </header>
 
+    
     <main>
         <!-- Cart Section -->
         <section class="cart">
@@ -45,11 +46,20 @@
             </table>
             <div class="cart-summary">
                 <p><strong>Total:</strong> R<span id="cart-total">0.00</span></p>
-				<script src="app.js"></script>
-                <button class="checkout-button">Proceed to Checkout</button>
+                <button id="checkout-button" class="checkout-button">Proceed to Checkout</button>
             </div>
         </section>
     </main>
+
+    <!-- Footer code remains unchanged -->
+
+    <script>
+        // Script to handle checkout button click
+        document.getElementById('checkout-button').addEventListener('click', function() {
+            // Redirect to the checkout page
+            window.location.href = 'Checkoutpage.html';  // Make sure the path is correct
+        });
+    </script>
 
     <footer>
         <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
