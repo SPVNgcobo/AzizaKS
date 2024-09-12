@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AzizaKS-LTD - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="Blogpage.html" data-section="blog">Blog</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
+                <li><a href="Accountspage.html" data-section="account">My Account</a></li>
+                <li><a href="AboutUspage.html" data-section="about">About Us</a></li>
+                <li><a href="Searchpage.html" data-section="search">Search</a></li>
+                <li><a href="Wishlistpage.html" data-section="wishlist">Wishlist</a></li>
+                <li><a href="Shippingpage.html" data-section="shipping">Shipping</a></li>
+                <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+                <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="signup">
+            <h1>Sign Up</h1>
+            <form id="signup-form" action="welcome.html" method="post" onsubmit="return validateSignUp()">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateSignUp() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
