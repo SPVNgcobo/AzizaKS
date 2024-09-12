@@ -10,10 +10,10 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+        <a href="{% url 'home' %}"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
         <nav>
             <ul>
-                <li><a href="index.html" data-section="home">AzizaKS-LTD</a></li>
+                <a href="{% url 'home' %}">AzizaKS-LTD</a>
                 <li><a href="Blogpage.html" data-section="blog">Blog</a></li>
                 <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
                 <li><a href="Accountspage.html" data-section="account">My Account</a></li>
