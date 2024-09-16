@@ -32,51 +32,47 @@
             <p>Explore the latest gadgets and innovations</p>
             <button onclick="window.location.href='Productpage.html'">Shop Now</button>
         </section>
-        <section id="products" class="products">
-            <h2>Featured Products</h2>
-            <div class="product-grid">
-                <!-- MacBook Air 13" Starlight -->
-                <div class="product" data-product="macbook-air">
-                    <img src="https://www.istore.co.za/media/catalog/product/cache/4ebc814e413626645aa42e369230a31f/m/a/macbook_air_13_in_starlight_pdp_image_position-1__wwen.jpg" alt="MacBook Air 13 Starlight">
-                    <h3>MacBook Air 13" Starlight</h3>
-                    <p>Price: R14,999.99</p>
-                    <button class="add-to-cart" onclick="addToCart('MacBook Air 13 Starlight', 14999.99)">Add to Cart</button>
-                    <button class="view-specs" onclick="showSpecs('macbook-air')">View Specifications</button>
-                </div>
-                <!-- Asus X515 -->
-                <div class="product" data-product="asus-x515">
-                    <img src="https://www.incredible.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/a/s/asus_x515_m515_product_photo__1g_slate_gray_05_ecommerce_514b.png" alt="Asus X515">
-                    <h3>Asus X515</h3>
-                    <p>Price: R7,499.99</p>
-                    <button class="add-to-cart" onclick="addToCart('Asus X515', 7499.99)">Add to Cart</button>
-                    <button class="view-specs" onclick="showSpecs('asus-x515')">View Specifications</button>
-                </div>
-                <!-- Hisense 40-inch Smart TV-40A4K -->
-                <div class="product" data-product="hisense-40a4k">
-                    <img src="https://www.hificorp.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/a/4/a4k_ecommerce_ca25.png" alt="Hisense 40-inch Smart TV-40A4K">
-                    <h3>Hisense 40-inch Smart TV-40A4K</h3>
-                    <p>Price: R3,999</p>
-                    <button class="add-to-cart" onclick="addToCart('Hisense 40-inch Smart TV-40A4K', 3999)">Add to Cart</button>
-                    <button class="view-specs" onclick="showSpecs('hisense-40a4k')">View Specifications</button>
-                </div>
-                <!-- SAMSUNG GALAXY S24 ULTRA 256GB 5G - TITANIUM BLACK -->
-                <div class="product" data-product="samsung-galaxy-s24-ultra">
-                    <img src="https://ik.imagekit.io/v7zehsakul/content/images/Products/8C1D24AF-6E69-4CC9-AC13-CD140484EFE9.png?tr=t-5,w-600,h-600,cm-pad_resize:w-850,h-850,cm-pad_extract,bg-FFFFFF,lo-false,q-80,&dt=2024/08/22%202:26:36%20PM" alt="SAMSUNG GALAXY S24 ULTRA 256GB 5G - TITANIUM BLACK">
-                    <h3>SAMSUNG GALAXY S24 ULTRA 256GB 5G - TITANIUM BLACK</h3>
-                    <p>Price: R27,999.00</p>
-                    <button class="add-to-cart" onclick="addToCart('SAMSUNG GALAXY S24 ULTRA 256GB 5G', 27999.00)">Add to Cart</button>
-                    <button class="view-specs" onclick="showSpecs('samsung-galaxy-s24-ultra')">View Specifications</button>
-                </div>
-                <!-- iPhone 15 Pro Max 1TB - Black Titanium -->
-                <div class="product" data-product="iphone-15-pro-max">
-                    <img src="https://www.istore.co.za/media/catalog/product/cache/4ebc814e413626645aa42e369230a31f/i/p/iphone_15_pro_max_black_titanium_pdp_image_position_1_1.jpg" alt="iPhone 15 Pro Max 1TB - Black Titanium">
-                    <h3>iPhone 15 Pro Max 1TB - Black Titanium</h3>
-                    <p>Price: R41,999.00</p>
-                    <button class="add-to-cart" onclick="addToCart('iPhone 15 Pro Max 1TB', 41999.00)">Add to Cart</button>
-                    <button class="view-specs" onclick="showSpecs('iphone-15-pro-max')">View Specifications</button>
-                </div>
-            </div>
-        </section>
+      <section id="products" class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+        <!-- MacBook Air 13" Starlight -->
+        <div class="product" data-product="macbook-air">
+            <img src="https://www.istore.co.za/media/catalog/product/cache/4ebc814e413626645aa42e369230a31f/m/a/macbook_air_13_in_starlight_pdp_image_position-1__wwen.jpg" alt="MacBook Air 13 Starlight">
+            <h3>MacBook Air 13" Starlight</h3>
+            <p>Price: R14,999.99</p>
+            <button class="add-to-cart" onclick="addToCart('MacBook Air 13 Starlight', 14999.99)">Add to Cart</button>
+            <button class="add-to-wishlist" onclick="addToWishlist('MacBook Air 13 Starlight')">Add to Wishlist</button>
+            <button class="view-specs" onclick="showSpecs('macbook-air')">View Specifications</button>
+        </div>
+        <!-- Asus X515 -->
+        <div class="product" data-product="asus-x515">
+            <img src="https://www.incredible.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/a/s/asus_x515_m515_product_photo__1g_slate_gray_05_ecommerce_514b.png" alt="Asus X515">
+            <h3>Asus X515</h3>
+            <p>Price: R7,499.99</p>
+            <button class="add-to-cart" onclick="addToCart('Asus X515', 7499.99)">Add to Cart</button>
+            <button class="add-to-wishlist" onclick="addToWishlist('Asus X515')">Add to Wishlist</button>
+            <button class="view-specs" onclick="showSpecs('asus-x515')">View Specifications</button>
+        </div>
+        <!-- Hisense 40-inch Smart TV-40A4K -->
+        <div class="product" data-product="hisense-40a4k">
+            <img src="https://www.hificorp.co.za/media/catalog/product/cache/7ce9addd40d23ee411c2cc726ad5e7ed/a/4/a4k_ecommerce_ca25.png" alt="Hisense 40-inch Smart TV-40A4K">
+            <h3>Hisense 40-inch Smart TV-40A4K</h3>
+            <p>Price: R3,999</p>
+            <button class="add-to-cart" onclick="addToCart('Hisense 40-inch Smart TV-40A4K', 3999)">Add to Cart</button>
+            <button class="add-to-wishlist" onclick="addToWishlist('Hisense 40-inch Smart TV-40A4K')">Add to Wishlist</button>
+            <button class="view-specs" onclick="showSpecs('hisense-40a4k')">View Specifications</button>
+        </div>
+        <!-- SAMSUNG GALAXY S24 ULTRA 256GB 5G - TITANIUM BLACK -->
+        <div class="product" data-product="samsung-galaxy-s24-ultra">
+            <img src="https://ik.imagekit.io/v7zehsakul/content/images/Products/8C1D24AF-6E69-4CC9-AC13-CD140484EFE9.png" alt="SAMSUNG GALAXY S24 ULTRA 256GB 5G - TITANIUM BLACK">
+            <h3>SAMSUNG GALAXY S24 ULTRA 256GB 5G - TITANIUM BLACK</h3>
+            <p>Price: R27,999.00</p>
+            <button class="add-to-cart" onclick="addToCart('SAMSUNG GALAXY S24 ULTRA 256GB 5G', 27999.00)">Add to Cart</button>
+            <button class="add-to-wishlist" onclick="addToWishlist('SAMSUNG GALAXY S24 ULTRA 256GB 5G')">Add to Wishlist</button>
+            <button class="view-specs" onclick="showSpecs('samsung-galaxy-s24-ultra')">View Specifications</button>
+        </div>
+    </div>
+</section>
         <section id="blog" class="blog">
             <h2>Latest Blog Posts</h2>
             <!-- Blog posts go here -->
