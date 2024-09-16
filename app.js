@@ -23,6 +23,36 @@ function addToCart(productName, price) {
     showModal('modal-add-to-cart'); // Show add-to-cart modal
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+            const shippingForm = document.getElementById('shipping-form');
+            const shippingMethod = document.getElementById('shipping-method');
+            const totalCostInput = document.getElementById('total-cost');
+            
+            // Dummy total purchase amount for demonstration
+            const purchaseAmount = 100; // Replace with actual purchase amount from your cart
+
+            function calculateTotalCost() {
+                let shippingCost = 0;
+                switch (shippingMethod.value) {
+                    case 'standard':
+                        shippingCost = purchaseAmount < 50 ? 5 : 0;
+                        break;
+                    case 'express':
+                        shippingCost = 15;
+                        break;
+                    case 'same-day':
+                        shippingCost = 25;
+                        break;
+                }
+                const totalCost = purchaseAmount + shippingCost;
+                totalCostInput.value = `$${totalCost.toFixed(2)}`;
+            }
+
+            shippingMethod.addEventListener('change', calculateTotalCost);
+            
+            // Calculate total cost on page load
+            calculateTotalCost();
+        });
 // Function to update the cart count (displayed in the header)
 function updateCartCount() {
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
