@@ -160,3 +160,54 @@ function sortProductsByName() {
     // Reorder products in the DOM
     products.forEach(product => productGrid.appendChild(product));
 }
+
+ document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsTable = document.getElementById('cart-items-table').getElementsByTagName('tbody')[0];
+            const subtotalElement = document.getElementById('subtotal');
+            const shippingCostElement = document.getElementById('shipping-cost');
+            const totalCostElement = document.getElementById('total-cost');
+            const shippingMethodSelect = document.getElementById('shipping-method');
+
+            // Dummy cart data for demonstration
+            const cartItems = [
+                { name: 'Product Name 1', quantity: 2, price: 50.00 },
+                // Add more items as needed
+            ];
+
+            let subtotal = 0;
+
+            cartItems.forEach(item => {
+                const row = cartItemsTable.insertRow();
+                row.insertCell().textContent = item.name;
+                row.insertCell().textContent = item.quantity;
+                row.insertCell().textContent = `$${item.price.toFixed(2)}`;
+                const total = item.quantity * item.price;
+                subtotal += total;
+                row.insertCell().textContent = `$${total.toFixed(2)}`;
+            });
+
+            function calculateTotalCost() {
+                let shippingCost = 0;
+                switch (shippingMethodSelect.value) {
+                    case 'standard':
+                        shippingCost = subtotal < 50 ? 5 : 0;
+                        break;
+                    case 'express':
+                        shippingCost = 15;
+                        break;
+                    case 'same-day':
+                        shippingCost = 25;
+                        break;
+                }
+                const totalCost = subtotal + shippingCost;
+                subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+                shippingCostElement.textContent = `$${shippingCost.toFixed(2)}`;
+                totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+            }
+
+            // Handle shipping method change
+            shippingMethodSelect.addEventListener('change', calculateTotalCost);
+
+            // Calculate total cost on page load
+            calculateTotalCost();
+        });
