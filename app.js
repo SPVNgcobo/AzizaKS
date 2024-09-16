@@ -95,3 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
     updateCartCount();
 });
+
+    // Simulate adding to wishlist
+function addToWishlist(productName) {
+    alert(`${productName} has been added to your wishlist!`);
+    // Here, you can implement functionality to save this item to the user's wishlist.
+}
+
