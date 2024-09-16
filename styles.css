@@ -1,13 +1,9 @@
-# Let's complete the CSS and fix the error
-
-css_content = """
-/* Root variables for consistent styling */
 :root {
-    --primary-color: #0056b3; /* Deepened for contrast */
-    --secondary-color: #003d82; /* Adjusted */
-    --accent-color: #ff6f00; /* Slightly lighter */
-    --dark-gray: #2a2a2a; /* Darkened */
-    --light-gray: #f0f0f0;
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --accent-color: #ff6600;
+    --dark-gray: #2c3e50;
+    --light-gray: #f4f4f4;
     --white: #ffffff;
     --font-color: #000000;
     --border-radius: 5px;
@@ -24,11 +20,9 @@ body, h1, h2, h3, p, ul, li {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: transparent;
-    color: var(--font-color);
 }
 
 /* Header styles */
@@ -49,7 +43,7 @@ header {
 /* Navigation styles */
 nav ul {
     display: flex;
-    gap: var(--spacing-medium);
+    gap: var(--spacing-small);
 }
 
 nav ul li a {
@@ -96,14 +90,10 @@ main {
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, background-color 0.3s;
 }
 
 .hero button:hover {
     background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Featured products section */
@@ -124,7 +114,7 @@ main {
 }
 
 .product {
-    background-color: var (--white);
+    background-color: var(--white);
     border: 1px solid #ccc;
     border-radius: var(--border-radius);
     padding: var(--spacing-small);
@@ -138,9 +128,8 @@ main {
 }
 
 .product:hover img {
-    transform: scale(1.15);
+    transform: scale(1.1);
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .product h3 {
@@ -160,14 +149,10 @@ main {
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, background-color 0.3s;
 }
 
 .product button:hover {
     background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* About Us section */
@@ -228,10 +213,6 @@ main {
     color: var(--white);
 }
 
-.cart-table tr:nth-child(even) {
-    background-color: var(--light-gray);
-}
-
 .cart-table input[type="number"] {
     width: 50px;
     text-align: center;
@@ -256,7 +237,6 @@ main {
 /* Modal styling */
 .modal {
     display: none;
-    opacity: 0;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -266,12 +246,6 @@ main {
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
-    transition: opacity 0.3s ease;
-}
-
-.modal.show {
-    display: flex;
-    opacity: 1;
 }
 
 .modal-content {
@@ -309,7 +283,6 @@ main {
 
     nav ul {
         flex-direction: column;
-        gap: var(--spacing-small);
     }
 }
 
@@ -319,11 +292,7 @@ main {
     }
 
     .hero h1 {
-        font-size: 1.8em;
-    }
-
-    .about-content img {
-        max-width: 100%;
+        font-size: 2em;
     }
 }
 
@@ -349,14 +318,111 @@ footer .social-icons {
 footer .social-icons a {
     color: var(--white);
     font-size: 1.2em;
-    transition: transform 0.3s ease, color 0.3s;
-}
-
-footer .social-icons a:hover {
-    transform: scale(1.2);
-    color: var(--accent-color);
 }
 
 /* Accessibility */
 a:focus, button:focus, input:focus {
-    outline
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Checkout Form Styles */
+.checkout-form {
+    background-color: var(--white);
+    padding: var(--spacing-medium);
+    margin: var(--spacing-large) auto;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-form h2 {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-large);
+}
+
+.checkout-form label {
+    display: block;
+    margin-bottom: var(--spacing-small);
+    font-size: 1em;
+    color: var(--font-color);
+}
+
+.checkout-form input[type="text"], 
+.checkout-form input[type="email"], 
+.checkout-form input[type="tel"] {
+    width: 100%;
+    padding: var(--spacing-small);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-medium);
+    font-size: 1em;
+}
+
+.checkout-form input[type="text"]:focus, 
+.checkout-form input[type="email"]:focus, 
+.checkout-form input[type="tel"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.checkout-form button {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-medium);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: var(--spacing-large);
+}
+
+.checkout-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Cart Summary Table */
+.cart-summary {
+    margin-top: var(--spacing-large);
+    background-color: var(--white);
+    padding: var(--spacing-medium);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-summary table th, 
+.cart-summary table td {
+    padding: var(--spacing-small);
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-summary table th {
+    background-color: var(--dark-gray);
+    color: var(--white);
+}
+
+.cart-summary table tfoot td {
+    font-weight: bold;
+    background-color: var(--light-gray);
+}
+
+/* Responsive Checkout Form */
+@media (max-width: 768px) {
+    .checkout-form {
+        padding: var(--spacing-medium);
+    }
+
+    .checkout-form button {
+        font-size: 1em;
+    }
+}
