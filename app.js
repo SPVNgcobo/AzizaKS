@@ -102,3 +102,33 @@ function addToWishlist(productName) {
     // Here, you can implement functionality to save this item to the user's wishlist.
 }
 
+    // Function to sort products by price
+function sortProductsByPrice() {
+    const productGrid = document.querySelector('.product-grid');
+    const products = Array.from(productGrid.getElementsByClassName('product'));
+
+    products.sort((a, b) => {
+        const priceA = parseFloat(a.getAttribute('data-price'));
+        const priceB = parseFloat(b.getAttribute('data-price'));
+        return priceA - priceB;
+    });
+
+    // Reorder products in the DOM
+    products.forEach(product => productGrid.appendChild(product));
+}
+
+// Function to sort products alphabetically (A to Z)
+function sortProductsByName() {
+    const productGrid = document.querySelector('.product-grid');
+    const products = Array.from(productGrid.getElementsByClassName('product'));
+
+    products.sort((a, b) => {
+        const nameA = a.getAttribute('data-name').toUpperCase();
+        const nameB = b.getAttribute('data-name').toUpperCase();
+        return nameA.localeCompare(nameB);
+    });
+
+    // Reorder products in the DOM
+    products.forEach(product => productGrid.appendChild(product));
+}
+
