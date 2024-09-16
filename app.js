@@ -211,3 +211,112 @@ function sortProductsByName() {
             // Calculate total cost on page load
             calculateTotalCost();
         });
+
+ const blogPosts = [
+            {
+                title: "The Future of Gadgets: What to Expect in 2024",
+                date: "August 1, 2024",
+                content: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year...",
+                fullContent: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year. From AI advancements to the next generation of smart devices, the future is looking bright for gadget enthusiasts...",
+                comments: []
+            },
+            {
+                title: "Top 10 Must-Have Gadgets for Tech Enthusiasts",
+                date: "July 20, 2024",
+                content: "Check out our list of the top 10 gadgets that every tech lover should own...",
+                fullContent: "Check out our list of the top 10 gadgets that every tech lover should own. These include the latest in wearable tech, smart home devices, and much more. Stay ahead of the curve with these must-have gadgets...",
+                comments: []
+            },
+            {
+                title: "How to Choose the Right Laptop for Your Needs",
+                date: "July 5, 2024",
+                content: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice...",
+                fullContent: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice based on your needs, whether you're a gamer, a professional, or just need a basic machine for daily use...",
+                comments: []
+            }
+        ];
+
+        // Function to display blog posts
+        function displayBlogPosts() {
+            const blogPostsContainer = document.getElementById('blog-posts');
+            blogPostsContainer.innerHTML = '';
+
+            blogPosts.forEach((post, index) => {
+                blogPostsContainer.innerHTML += `
+                    <article class="blog-post">
+                        <h2>${post.title}</h2>
+                        <p><em>${post.date}</em></p>
+                        <p>${post.content}</p>
+                        <button onclick="readMore(${index})" class="read-more-button">Read More</button>
+                    </article>
+                `;
+            });
+        }
+
+        // Function to display full blog post with comments
+        function readMore(index) {
+            const post = blogPosts[index];
+            const blogPostsContainer = document.getElementById('blog-posts');
+            blogPostsContainer.innerHTML = `
+                <article class="full-blog-post">
+                    <h2>${post.title}</h2>
+                    <p><em>${post.date}</em></p>
+                    <p>${post.fullContent}</p>
+
+                    <section id="comments-section-${index}" class="comments-section">
+                        <h3>Comments</h3>
+                        <div id="comments-${index}">
+                            <!-- Comments will be dynamically inserted here -->
+                        </div>
+
+                        <textarea id="comment-input-${index}" placeholder="Add a comment..."></textarea>
+                        <button onclick="addComment(${index})">Submit</button>
+                    </section>
+
+                    <button onclick="displayBlogPosts()" class="back-button">Back to Blog</button>
+                </article>
+            `;
+
+            displayComments(index);
+        }
+
+        // Function to display comments
+        function displayComments(index) {
+            const commentsContainer = document.getElementById(`comments-${index}`);
+            const comments = blogPosts[index].comments;
+            commentsContainer.innerHTML = '';
+
+            comments.forEach((comment, commentIndex) => {
+                commentsContainer.innerHTML += `
+                    <div class="comment">
+                        <p>${comment.text}</p>
+                        <button onclick="editComment(${index}, ${commentIndex})">Edit</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Function to add a comment
+        function addComment(index) {
+            const commentInput = document.getElementById(`comment-input-${index}`);
+            const commentText = commentInput.value;
+
+            if (commentText) {
+                blogPosts[index].comments.push({ text: commentText });
+                commentInput.value = ''; // Clear input after adding
+                displayComments(index); // Refresh comments section
+            }
+        }
+
+        // Function to edit a comment
+        function editComment(postIndex, commentIndex) {
+            const newCommentText = prompt("Edit your comment:", blogPosts[postIndex].comments[commentIndex].text);
+
+            if (newCommentText !== null && newCommentText.trim() !== '') {
+                blogPosts[postIndex].comments[commentIndex].text = newCommentText;
+                displayComments(postIndex); // Refresh comments section
+            }
+        }
+
+        // Initialize blog page
+        displayBlogPosts();
