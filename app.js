@@ -1,10 +1,15 @@
-// Global cart array
+// Global cart array, load from localStorage or initialize
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to save cart to localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 // Function to add items to the cart
 function addToCart(productName, price) {
     const existingProduct = cart.find(item => item.name === productName);
-    
+
     if (existingProduct) {
         existingProduct.quantity += 1;
         existingProduct.total = existingProduct.quantity * existingProduct.price;
@@ -12,13 +17,13 @@ function addToCart(productName, price) {
         cart.push({ name: productName, price: price, quantity: 1, total: price });
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartUI();
-    updateCartCount();
-    showModal('modal-add-to-cart');
+    saveCart(); // Save cart to localStorage
+    updateCartUI(); // Update cart items on the cart page (if applicable)
+    updateCartCount(); // Update the cart count in the header
+    showModal('modal-add-to-cart'); // Show add-to-cart modal
 }
 
-// Function to update the cart UI on the home page
+// Function to update the cart count (displayed in the header)
 function updateCartCount() {
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
     const cartIcon = document.getElementById('cart-icon');
@@ -33,7 +38,7 @@ function updateCartUI() {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     
-    if (cartItemsContainer) {
+    if (cartItemsContainer && cartTotal) {
         cartItemsContainer.innerHTML = '';
         let total = 0;
 
@@ -50,18 +55,21 @@ function updateCartUI() {
             total += item.total;
         });
 
-        cartTotal.textContent = total.toFixed(2);
+        cartTotal.textContent = `Total: R${total.toFixed(2)}`;
     }
-    document.getElementById('checkout-button').addEventListener('click', function() {
-            // Redirect to the checkout page
-  window.location.href = 'Checkoutpage.html';  // Make sure the path is correct		
+
+    const checkoutButton = document.getElementById('checkout-button');
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', function() {
+            window.location.href = 'Checkoutpage.html'; // Redirect to the checkout page
+        });
+    }
 }
-  
 
 // Function to remove items from the cart
 function removeFromCart(productName) {
     cart = cart.filter(item => item.name !== productName);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    saveCart();
     updateCartUI();
     updateCartCount();
 }
@@ -76,33 +84,54 @@ function showSpecs(productId) {
         'iphone-15-pro-max': 'iPhone 15 Pro Max 1TB Specs...'
     };
 
-    document.querySelector('#modal-view-specs .modal-content p').textContent = specs[productId] || 'Specifications not available.';
-    showModal('modal-view-specs');
+    const specContent = specs[productId] || 'Specifications not available.';
+    const specModalContent = document.querySelector('#modal-view-specs .modal-content p');
+    
+    if (specModalContent) {
+        specModalContent.textContent = specContent;
+        showModal('modal-view-specs');
+    }
 }
 
 // Function to show a modal
 function showModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'block';
+    }
 }
 
 // Function to close a modal
 function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+};
 
 // Initialize cart UI and count on page load
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartUI();
-    updateCartCount();
+    updateCartUI(); // Populate cart page with items
+    updateCartCount(); // Update the cart count on every page
 });
 
-    // Simulate adding to wishlist
+// Function to simulate adding to wishlist
 function addToWishlist(productName) {
     alert(`${productName} has been added to your wishlist!`);
-    // Here, you can implement functionality to save this item to the user's wishlist.
+    // Implement further logic for saving to the wishlist, if needed.
 }
 
-    // Function to sort products by price
+// Function to sort products by price
 function sortProductsByPrice() {
     const productGrid = document.querySelector('.product-grid');
     const products = Array.from(productGrid.getElementsByClassName('product'));
@@ -131,4 +160,3 @@ function sortProductsByName() {
     // Reorder products in the DOM
     products.forEach(product => productGrid.appendChild(product));
 }
-
