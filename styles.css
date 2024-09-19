@@ -77,6 +77,11 @@ header {
 nav ul {
     display: flex;
     gap: var(--spacing-small);
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
 }
 
 nav ul li a {
@@ -97,11 +102,12 @@ nav ul li a:hover {
 }
 
 .dropbtn {
-    background-color: var(--dark-gray);
-    color: var(--white);
+    background-color: transparent; /* Make button background transparent */
+    color: var(--primary-color);
     padding: var(--spacing-small);
     border: none;
     cursor: pointer;
+    font-size: 14px; /* Match font size of other links */
     display: flex;
     align-items: center;
 }
@@ -135,7 +141,7 @@ nav ul li a:hover {
 }
 
 .dropdown:hover .dropbtn {
-    background-color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 /* Main content */
