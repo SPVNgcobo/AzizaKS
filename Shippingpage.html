@@ -5,25 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AzizaKS-LTD - Gadget Store</title>
     <link rel="icon" href="Aziza.jpg" type="image/jpg">
-    <!-- Font Awesome CDN for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Make sure styles.css is correctly linked -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+    <style>  .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
 <body>
-    <header>
+   <header>
+    <div class="header-left">
         <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
-        <button class="hamburger" id="hamburger">☰</button>
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="index.html" data-section="home">AzizaKS-LTD</a></li>
-                <li><a href="Blogpage.html" data-section="blog">Blog</a></li>
-                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
-                <li><a href="Accountspage.html" data-section="account">My Account</a></li>
-                <li><a href="AboutUspage.html" data-section="about">About Us</a></li>
-                <li><a href="Wishlistpage.html" data-section="wishlist">Wishlist</a></li>
-                <li><a href="Shippingpage.html" data-section="shipping">Shipping</a></li>
-            </ul>
-        </nav>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products..." id="search-input">
+            <button type="submit" id="search-button">Search</button>
+        </div>
+    </div>
+
+    <nav>
+        <ul>  
+            <li><a href="Login.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+            <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+            <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
+            <li class="dropdown">
+                <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="AboutUspage.html" data-section="about">About Us</a>
+                    <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
+                    <a href="Shippingpage.html" data-section="shipping">Shipping</a>
+                    <a href="Blogpage.html" data-section="blog">Blog</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
     </header>
     <main>
         <section id="shipping" class="shipping-section">
