@@ -25,8 +25,7 @@ body {
     line-height: 1.6;
     background-color: transparent;
 }
-
-/* Header styles */
+/* Header styles with search bar */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,6 +38,39 @@ header {
 #logo {
     height: 50px;
     max-width: 100%;
+}
+
+/* Header left section containing logo and search */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Search bar styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: var(--spacing-medium); /* Add space between logo and search */
+}
+
+#search-input {
+    padding: var(--spacing-small);
+    width: 200px;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+#search-button {
+    padding: var(--spacing-small) var(--spacing-medium);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Navigation styles */
@@ -58,7 +90,6 @@ nav ul li a {
 nav ul li a:hover {
     color: var(--secondary-color);
 }
-
 /* Main content */
 main {
     padding: var(--spacing-medium);
