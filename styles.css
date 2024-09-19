@@ -45,6 +45,7 @@ header {
     display: flex;
     align-items: center;
 }
+
 /* Search bar styling */
 .search-bar {
     display: flex;
@@ -89,6 +90,54 @@ nav ul li a {
 nav ul li a:hover {
     color: var(--secondary-color);
 }
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: var(--spacing-small);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    width: 200px; /* Adjust as needed */
+}
+
+.dropdown-content a {
+    color: var(--font-color);
+    padding: var(--spacing-small);
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--light-gray);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: var(--secondary-color);
+}
+
 /* Main content */
 main {
     padding: var(--spacing-medium);
