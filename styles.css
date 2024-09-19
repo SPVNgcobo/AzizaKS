@@ -187,7 +187,18 @@ main {
     background-color: var(--secondary-color);
 }
 
-/* Form styling for text fields */
+/* Form styling - Stacked vertically with spacing */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: var(--spacing-medium);
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+}
+
 .form-field {
     display: flex;
     flex-direction: column;
@@ -200,6 +211,8 @@ main {
 }
 
 .form-field input[type="text"], 
+.form-field input[type="email"],
+.form-field input[type="password"],
 .form-field textarea {
     padding: var(--spacing-small);
     border: 1px solid var(--light-gray);
@@ -207,6 +220,28 @@ main {
     font-size: 1em;
     width: 100%;
     box-sizing: border-box;
+}
+
+/* Form button styling */
+.form-button {
+    padding: var(--spacing-small) var(--spacing-medium);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.form-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Form alignment on the page */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* About Us section */
@@ -320,47 +355,3 @@ footer .social-icons a {
     color: var(--white);
     font-size: 1.2em;
 }
-/* Styling for the sign-up form */
-.signup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto; /* Centers the form on the page */
-}
-
-.signup-form label {
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-.signup-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid var(--light-gray);
-    border-radius: var(--border-radius);
-}
-
-.signup-form button {
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-}
-
-.signup-form button:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Form container styling */
-.form-container {
-    display: flex;
-    justify-content: center;
-    padding: var(--spacing-large);
-}
-
-
