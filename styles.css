@@ -1,4 +1,3 @@
-
 :root {
     --primary-color: #007bff;
     --secondary-color: #0056b3;
@@ -25,6 +24,7 @@ body {
     line-height: 1.6;
     background-color: transparent;
 }
+
 /* Header styles with search bar */
 header {
     display: flex;
@@ -184,7 +184,29 @@ main {
 }
 
 .product button:hover {
-    background-color: var (--secondary-color);
+    background-color: var(--secondary-color);
+}
+
+/* Form styling for text fields */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-medium); /* Space between fields */
+}
+
+.form-field label {
+    margin-bottom: var(--spacing-small);
+    font-weight: bold;
+}
+
+.form-field input[type="text"], 
+.form-field textarea {
+    padding: var(--spacing-small);
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* About Us section */
@@ -195,13 +217,13 @@ main {
 
 .about-us h2 {
     text-align: center;
-    margin-bottom: var (--spacing-medium);
+    margin-bottom: var(--spacing-medium);
 }
 
 .about-content {
     display: flex;
     align-items: center;
-    gap: var (--spacing-medium);
+    gap: var(--spacing-medium);
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -221,28 +243,28 @@ main {
 
 .cart h2 {
     text-align: center;
-    margin-bottom: var (--spacing-medium);
-    color: var (--dark-gray);
+    margin-bottom: var(--spacing-medium);
+    color: var(--dark-gray);
 }
 
 .cart-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: var (--spacing-medium);
-    background-color: var (--white);
+    margin-bottom: var(--spacing-medium);
+    background-color: var(--white);
     border-radius: var(--border-radius);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cart-table th, .cart-table td {
-    padding: var (--spacing-small);
+    padding: var(--spacing-small);
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
 .cart-table th {
-    background-color: var (--dark-gray);
-    color: var (--white);
+    background-color: var(--dark-gray);
+    color: var(--white);
 }
 
 /* Modal styling */
@@ -276,16 +298,6 @@ main {
     cursor: pointer;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
 /* Footer */
 footer {
     background-color: var(--dark-gray);
@@ -307,4 +319,4 @@ footer .social-icons {
 footer .social-icons a {
     color: var(--white);
     font-size: 1.2em;
-}my text edit must one below the other and must be formatted accordingly
+}
