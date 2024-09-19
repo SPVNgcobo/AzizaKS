@@ -11,34 +11,78 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <header>
-    <div class="header-left">
-        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+    <header>
+        <div class="header-left">
+            <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
 
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Search for products..." id="search-input" aria-label="Search">
-            <button type="submit" id="search-button">Search</button>
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="search-input" aria-label="Search">
+                <button type="submit" id="search-button">Search</button>
+            </div>
         </div>
-    </div>
 
-    <nav>
-        <ul>  
-            <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-            <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
-            <li class="dropdown">
-                <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="AboutUspage.html" data-section="about">About Us</a>
-                    <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
-                    <a href="Shippingpage.html" data-section="shipping">Shipping</a>
-                    <a href="Blogpage.html" data-section="blog">Blog</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    
+        <nav>
+            <ul>  
+                <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
+                <li class="dropdown">
+                    <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="AboutUspage.html" data-section="about">About Us</a>
+                        <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
+                        <a href="Shippingpage.html" data-section="shipping">Shipping</a>
+                        <a href="Blogpage.html" data-section="blog">Blog</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="account" class="account-section">
+            <h1>My Account</h1>
+            <div class="account-info">
+                <h2>Account Information</h2>
+                <form action="update_account.php" method="POST">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <button type="submit">Update Information</button>
+                </form>
+            </div>
+            <div class="order-history">
+                <h2>Order History</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>2024-08-20</td>
+                            <td>Shipped</td>
+                            <td>$250.00</td>
+                        </tr>
+                        <!-- Add more orders as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
         <ul class="social-icons">
