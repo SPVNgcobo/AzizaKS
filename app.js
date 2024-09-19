@@ -23,36 +23,6 @@ function addToCart(productName, price) {
     showModal('modal-add-to-cart'); // Show add-to-cart modal
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-            const shippingForm = document.getElementById('shipping-form');
-            const shippingMethod = document.getElementById('shipping-method');
-            const totalCostInput = document.getElementById('total-cost');
-            
-            // Dummy total purchase amount for demonstration
-            const purchaseAmount = 100; // Replace with actual purchase amount from your cart
-
-            function calculateTotalCost() {
-                let shippingCost = 0;
-                switch (shippingMethod.value) {
-                    case 'standard':
-                        shippingCost = purchaseAmount < 50 ? 5 : 0;
-                        break;
-                    case 'express':
-                        shippingCost = 15;
-                        break;
-                    case 'same-day':
-                        shippingCost = 25;
-                        break;
-                }
-                const totalCost = purchaseAmount + shippingCost;
-                totalCostInput.value = `$${totalCost.toFixed(2)}`;
-            }
-
-            shippingMethod.addEventListener('change', calculateTotalCost);
-            
-            // Calculate total cost on page load
-            calculateTotalCost();
-        });
 // Function to update the cart count (displayed in the header)
 function updateCartCount() {
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -158,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to simulate adding to wishlist
 function addToWishlist(productName) {
     alert(`${productName} has been added to your wishlist!`);
-    // Implement further logic for saving to the wishlist, if needed.
 }
 
 // Function to sort products by price
@@ -191,162 +160,136 @@ function sortProductsByName() {
     products.forEach(product => productGrid.appendChild(product));
 }
 
- document.addEventListener('DOMContentLoaded', () => {
-            const cartItemsTable = document.getElementById('cart-items-table').getElementsByTagName('tbody')[0];
-            const subtotalElement = document.getElementById('subtotal');
-            const shippingCostElement = document.getElementById('shipping-cost');
-            const totalCostElement = document.getElementById('total-cost');
-            const shippingMethodSelect = document.getElementById('shipping-method');
+// Handle shipping cost calculations
+document.addEventListener('DOMContentLoaded', () => {
+    const cartItemsTable = document.getElementById('cart-items-table').getElementsByTagName('tbody')[0];
+    const subtotalElement = document.getElementById('subtotal');
+    const shippingCostElement = document.getElementById('shipping-cost');
+    const totalCostElement = document.getElementById('total-cost');
+    const shippingMethodSelect = document.getElementById('shipping-method');
 
-            // Dummy cart data for demonstration
-            const cartItems = [
-                { name: 'Product Name 1', quantity: 2, price: 50.00 },
-                // Add more items as needed
-            ];
+    const cartItems = [
+        { name: 'Product Name 1', quantity: 2, price: 50.00 },
+    ];
 
-            let subtotal = 0;
+    let subtotal = 0;
 
-            cartItems.forEach(item => {
-                const row = cartItemsTable.insertRow();
-                row.insertCell().textContent = item.name;
-                row.insertCell().textContent = item.quantity;
-                row.insertCell().textContent = `$${item.price.toFixed(2)}`;
-                const total = item.quantity * item.price;
-                subtotal += total;
-                row.insertCell().textContent = `$${total.toFixed(2)}`;
-            });
+    cartItems.forEach(item => {
+        const row = cartItemsTable.insertRow();
+        row.insertCell().textContent = item.name;
+        row.insertCell().textContent = item.quantity;
+        row.insertCell().textContent = `$${item.price.toFixed(2)}`;
+        const total = item.quantity * item.price;
+        subtotal += total;
+        row.insertCell().textContent = `$${total.toFixed(2)}`;
+    });
 
-            function calculateTotalCost() {
-                let shippingCost = 0;
-                switch (shippingMethodSelect.value) {
-                    case 'standard':
-                        shippingCost = subtotal < 50 ? 5 : 0;
-                        break;
-                    case 'express':
-                        shippingCost = 15;
-                        break;
-                    case 'same-day':
-                        shippingCost = 25;
-                        break;
-                }
-                const totalCost = subtotal + shippingCost;
-                subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-                shippingCostElement.textContent = `$${shippingCost.toFixed(2)}`;
-                totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
-            }
-
-            // Handle shipping method change
-            shippingMethodSelect.addEventListener('change', calculateTotalCost);
-
-            // Calculate total cost on page load
-            calculateTotalCost();
-        });
-
- const blogPosts = [
-            {
-                title: "The Future of Gadgets: What to Expect in 2024",
-                date: "August 1, 2024",
-                content: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year...",
-                fullContent: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year. From AI advancements to the next generation of smart devices, the future is looking bright for gadget enthusiasts...",
-                comments: []
-            },
-            {
-                title: "Top 10 Must-Have Gadgets for Tech Enthusiasts",
-                date: "July 20, 2024",
-                content: "Check out our list of the top 10 gadgets that every tech lover should own...",
-                fullContent: "Check out our list of the top 10 gadgets that every tech lover should own. These include the latest in wearable tech, smart home devices, and much more. Stay ahead of the curve with these must-have gadgets...",
-                comments: []
-            },
-            {
-                title: "How to Choose the Right Laptop for Your Needs",
-                date: "July 5, 2024",
-                content: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice...",
-                fullContent: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice based on your needs, whether you're a gamer, a professional, or just need a basic machine for daily use...",
-                comments: []
-            }
-        ];
-
-        // Function to display blog posts
-        function displayBlogPosts() {
-            const blogPostsContainer = document.getElementById('blog-posts');
-            blogPostsContainer.innerHTML = '';
-
-            blogPosts.forEach((post, index) => {
-                blogPostsContainer.innerHTML += `
-                    <article class="blog-post">
-                        <h2>${post.title}</h2>
-                        <p><em>${post.date}</em></p>
-                        <p>${post.content}</p>
-                        <button onclick="readMore(${index})" class="read-more-button">Read More</button>
-                    </article>
-                `;
-            });
+    function calculateTotalCost() {
+        let shippingCost = 0;
+        switch (shippingMethodSelect.value) {
+            case 'standard':
+                shippingCost = subtotal < 50 ? 5 : 0;
+                break;
+            case 'express':
+                shippingCost = 15;
+                break;
+            case 'same-day':
+                shippingCost = 25;
+                break;
         }
+        const totalCost = subtotal + shippingCost;
+        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+        shippingCostElement.textContent = `$${shippingCost.toFixed(2)}`;
+        totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+    }
 
-        // Function to display full blog post with comments
-        function readMore(index) {
-            const post = blogPosts[index];
-            const blogPostsContainer = document.getElementById('blog-posts');
-            blogPostsContainer.innerHTML = `
-                <article class="full-blog-post">
-                    <h2>${post.title}</h2>
-                    <p><em>${post.date}</em></p>
-                    <p>${post.fullContent}</p>
+    shippingMethodSelect.addEventListener('change', calculateTotalCost);
+    calculateTotalCost();
+});
 
-                    <section id="comments-section-${index}" class="comments-section">
-                        <h3>Comments</h3>
-                        <div id="comments-${index}">
-                            <!-- Comments will be dynamically inserted here -->
-                        </div>
+// Blog post functionality
+const blogPosts = [
+    {
+        title: "The Future of Gadgets: What to Expect in 2024",
+        date: "August 1, 2024",
+        content: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year...",
+        fullContent: "As we look forward to the latest in tech, here are some trends to watch out for in the coming year. From AI advancements to the next generation of smart devices, the future is looking bright for gadget enthusiasts...",
+        comments: []
+    },
+    {
+        title: "Top 10 Must-Have Gadgets for Tech Enthusiasts",
+        date: "July 20, 2024",
+        content: "Check out our list of the top 10 gadgets that every tech lover should own...",
+        fullContent: "Check out our list of the top 10 gadgets that every tech lover should own. These include the latest in wearable tech, smart home devices, and much more. Stay ahead of the curve with these must-have gadgets...",
+        comments: []
+    },
+    {
+        title: "How to Choose the Right Laptop for Your Needs",
+        date: "July 5, 2024",
+        content: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice...",
+        fullContent: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice based on your needs, whether you're a gamer, a professional, or just need a basic machine for daily use...",
+        comments: []
+    }
+];
 
-                        <textarea id="comment-input-${index}" placeholder="Add a comment..."></textarea>
-                        <button onclick="addComment(${index})">Submit</button>
-                    </section>
+// Function to display blog posts
+function displayBlogPosts() {
+    const blogPostsContainer = document.getElementById('blog-posts');
+    blogPostsContainer.innerHTML = '';
 
-                    <button onclick="displayBlogPosts()" class="back-button">Back to Blog</button>
-                </article>
-            `;
+    blogPosts.forEach((post, index) => {
+        blogPostsContainer.innerHTML += `
+            <article class="blog-post">
+                <h2>${post.title}</h2>
+                <p><strong>Date:</strong> ${post.date}</p>
+                <p>${post.content}</p>
+                <button onclick="viewFullPost(${index})">Read More</button>
+            </article>
+        `;
+    });
+}
 
-            displayComments(index);
-        }
+// Function to display full blog post with comments
+function viewFullPost(postIndex) {
+    const post = blogPosts[postIndex];
+    const fullPostContainer = document.getElementById('full-post');
+    
+    if (fullPostContainer) {
+        fullPostContainer.innerHTML = `
+            <h2>${post.title}</h2>
+            <p><strong>Date:</strong> ${post.date}</p>
+            <p>${post.fullContent}</p>
+            <h3>Comments</h3>
+            <ul id="comments-list">
+                ${post.comments.map(comment => `<li>${comment}</li>`).join('')}
+            </ul>
+            <input type="text" id="comment-input" placeholder="Write a comment..." />
+            <button onclick="addComment(${postIndex})">Add Comment</button>
+            <button onclick="goBackToBlogPosts()">Back to Blog</button>
+        `;
+    }
+}
 
-        // Function to display comments
-        function displayComments(index) {
-            const commentsContainer = document.getElementById(`comments-${index}`);
-            const comments = blogPosts[index].comments;
-            commentsContainer.innerHTML = '';
+// Function to add a comment to a blog post
+function addComment(postIndex) {
+    const commentInput = document.getElementById('comment-input');
+    const comment = commentInput.value.trim();
 
-            comments.forEach((comment, commentIndex) => {
-                commentsContainer.innerHTML += `
-                    <div class="comment">
-                        <p>${comment.text}</p>
-                        <button onclick="editComment(${index}, ${commentIndex})">Edit</button>
-                    </div>
-                `;
-            });
-        }
+    if (comment) {
+        blogPosts[postIndex].comments.push(comment);
+        viewFullPost(postIndex); // Refresh post to show new comment
+        commentInput.value = ''; // Clear comment input field
+    }
+}
 
-        // Function to add a comment
-        function addComment(index) {
-            const commentInput = document.getElementById(`comment-input-${index}`);
-            const commentText = commentInput.value;
+// Function to go back to the blog posts list
+function goBackToBlogPosts() {
+    const fullPostContainer = document.getElementById('full-post');
+    if (fullPostContainer) {
+        fullPostContainer.innerHTML = ''; // Clear full post view
+    }
+    displayBlogPosts(); // Show all blog posts
+}
 
-            if (commentText) {
-                blogPosts[index].comments.push({ text: commentText });
-                commentInput.value = ''; // Clear input after adding
-                displayComments(index); // Refresh comments section
-            }
-        }
-
-        // Function to edit a comment
-        function editComment(postIndex, commentIndex) {
-            const newCommentText = prompt("Edit your comment:", blogPosts[postIndex].comments[commentIndex].text);
-
-            if (newCommentText !== null && newCommentText.trim() !== '') {
-                blogPosts[postIndex].comments[commentIndex].text = newCommentText;
-                displayComments(postIndex); // Refresh comments section
-            }
-        }
-
-        // Initialize blog page
-        displayBlogPosts();
+// Initialize blog posts display on page load
+document.addEventListener('DOMContentLoaded', displayBlogPosts);
