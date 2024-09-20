@@ -14,7 +14,7 @@
     --hover-transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Reset some default browser styles */
+/* Reset default browser styles */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
@@ -28,7 +28,7 @@ body {
     background-color: transparent;
 }
 
-/* Header styles with search bar */
+/* Header styles */
 header {
     display: flex;
     justify-content: space-between;
@@ -48,13 +48,12 @@ header:hover {
     max-width: 100%;
 }
 
-/* Header left section containing logo and search */
 .header-left {
     display: flex;
     align-items: center;
 }
 
-/* Search bar styling */
+/* Search bar styles */
 .search-bar {
     display: flex;
     align-items: center;
@@ -87,10 +86,6 @@ nav ul {
     display: flex;
     gap: var(--spacing-small);
     align-items: center;
-}
-
-nav ul li {
-    position: relative;
 }
 
 nav ul li a {
@@ -545,5 +540,16 @@ footer .social-icons a {
     .checkout {
         padding: var(--spacing-small);
     }
-}
 
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
