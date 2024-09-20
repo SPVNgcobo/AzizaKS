@@ -10,7 +10,8 @@
     --spacing-small: 8px;
     --spacing-medium: 16px;
     --spacing-large: 24px;
-    --font-family: 'Roboto', Arial, sans-serif; /* New font family */
+    --font-family: 'Roboto', Arial, sans-serif; 
+    --hover-transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Reset some default browser styles */
@@ -35,6 +36,11 @@ header {
     background-color: var(--dark-gray);
     padding: var(--spacing-small) var(--spacing-medium);
     color: var(--white);
+    transition: var(--hover-transition);
+}
+
+header:hover {
+    background-color: var(--secondary-color);
 }
 
 #logo {
@@ -52,7 +58,7 @@ header {
 .search-bar {
     display: flex;
     align-items: center;
-    margin-left: var(--spacing-medium); /* Add space between logo and search */
+    margin-left: var(--spacing-medium);
 }
 
 #search-input {
@@ -69,6 +75,7 @@ header {
     border: none;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     cursor: pointer;
+    transition: var(--hover-transition);
 }
 
 #search-button:hover {
@@ -114,7 +121,7 @@ main {
 .hero {
     background-color: var(--dark-gray);
     color: var(--white);
-    padding: 80px 30px; /* Increased padding for better spacing */
+    padding: 80px 30px;
     text-align: center;
 }
 
@@ -135,7 +142,7 @@ main {
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--hover-transition);
 }
 
 .hero button:hover {
@@ -181,7 +188,6 @@ main {
 
 .product:hover img {
     transform: scale(1.1);
-    cursor: pointer;
 }
 
 .product h3 {
@@ -201,6 +207,7 @@ main {
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
+    transition: var(--hover-transition);
 }
 
 .product button:hover {
@@ -256,6 +263,7 @@ input:focus, textarea:focus {
     border-radius: var(--border-radius);
     cursor: pointer;
     align-self: flex-start;
+    transition: var(--hover-transition);
 }
 
 .form-button:hover {
@@ -291,6 +299,10 @@ input:focus, textarea:focus {
     .about-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust for smaller screens */
     }
 }
 
@@ -383,12 +395,13 @@ footer .social-icons a {
     font-size: 1.2em;
 }
 
+/* Dropdown styling */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -406,4 +419,3 @@ footer .social-icons a {
 .dropdown.show .dropdown-content {
     display: block;
 }
-
