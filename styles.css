@@ -10,6 +10,7 @@
     --spacing-small: 8px;
     --spacing-medium: 16px;
     --spacing-large: 24px;
+    --font-family: 'Roboto', Arial, sans-serif; /* New font family */
 }
 
 /* Reset some default browser styles */
@@ -20,8 +21,9 @@ body, h1, h2, h3, p, ul, li {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.75;
     background-color: transparent;
 }
 
@@ -96,6 +98,11 @@ nav ul li a:hover {
     color: var(--secondary-color);
 }
 
+nav ul li a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
 /* Main content */
 main {
     padding: var(--spacing-medium);
@@ -107,7 +114,7 @@ main {
 .hero {
     background-color: var(--dark-gray);
     color: var(--white);
-    padding: 60px 20px;
+    padding: 80px 30px; /* Increased padding for better spacing */
     text-align: center;
 }
 
@@ -128,16 +135,18 @@ main {
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .hero button:hover {
     background-color: var(--secondary-color);
+    transform: scale(1.05);
 }
 
 /* Featured products section */
 .featured-products {
     background-color: var(--light-gray);
-    padding: 40px 20px;
+    padding: 60px 30px;
 }
 
 .featured-products h2 {
@@ -157,7 +166,12 @@ main {
     border-radius: var(--border-radius);
     padding: var(--spacing-small);
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.product:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product img {
@@ -193,7 +207,7 @@ main {
     background-color: var(--secondary-color);
 }
 
-/* Form styling - Stacked vertically with spacing */
+/* Form styling */
 .form-container {
     display: flex;
     flex-direction: column;
@@ -208,7 +222,7 @@ main {
 .form-field {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--spacing-medium); /* Space between fields */
+    margin-bottom: var(--spacing-medium);
 }
 
 .form-field label {
@@ -228,7 +242,12 @@ main {
     box-sizing: border-box;
 }
 
-/* Form button styling */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
 .form-button {
     padding: var(--spacing-small) var(--spacing-medium);
     background-color: var(--primary-color);
@@ -241,18 +260,12 @@ main {
 
 .form-button:hover {
     background-color: var(--secondary-color);
-}
-
-/* Form alignment on the page */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    transform: scale(1.05);
 }
 
 /* About Us section */
 .about-us {
-    padding: 40px 20px;
+    padding: 60px 30px;
     background-color: #f9f9f9;
 }
 
@@ -272,6 +285,13 @@ form {
 .about-content img {
     max-width: 50%;
     border-radius: var(--border-radius);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 /* Cart Section */
@@ -328,6 +348,7 @@ form {
     border-radius: var(--border-radius);
     width: 300px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .close {
