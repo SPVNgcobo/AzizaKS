@@ -23,18 +23,15 @@
     </div>
     <nav>
         <ul>  
-            <li><a href="SignIn.html" data-section="signin" aria-label="Sign In"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
-            <li><a href="SignUp.html" data-section="signup" aria-label="Sign Up"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-            <li><a href="Cartpage.html" id="cart-icon" class="cart-icon" aria-label="Cart">Cart (0)</a></li>
-            <li class="dropdown">
-                <a href="Accountspage.html" class="dropbtn" data-section="account" aria-label="My Account">My Account <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="AboutUspage.html" data-section="about">About Us</a>
-                    <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
-                    <a href="Shippingpage.html" data-section="shipping">Shipping</a>
-                    <a href="Blogpage.html" data-section="blog">Blog</a>
-                </div>
-            </li>
+           <li class="dropdown">
+    <a href="javascript:void(0);" class="dropbtn" onclick="toggleDropdown()">My Account <i class="fas fa-caret-down"></i></a>
+    <div id="dropdown-content" class="dropdown-content">
+        <a href="AboutUspage.html" data-section="about">About Us</a>
+        <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
+        <a href="Shippingpage.html" data-section="shipping">Shipping</a>
+        <a href="Blogpage.html" data-section="blog">Blog</a>
+    </div>
+</li>
         </ul>
     </nav>
 </header>
