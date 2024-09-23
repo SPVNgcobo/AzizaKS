@@ -39,11 +39,11 @@ function updateCartUI() {
     const cartTotal = document.getElementById('cart-total');
     
     if (cartItemsContainer && cartTotal) {
-        cartItemsContainer.innerHTML = '';
+        let cartContent = '';
         let total = 0;
 
         cart.forEach(item => {
-            cartItemsContainer.innerHTML += `
+            cartContent += `
                 <tr>
                     <td>${item.name}</td>
                     <td>${item.quantity}</td>
@@ -55,12 +55,13 @@ function updateCartUI() {
             total += item.total;
         });
 
+        cartItemsContainer.innerHTML = cartContent;
         cartTotal.textContent = `Total: R${total.toFixed(2)}`;
     }
 
     const checkoutButton = document.getElementById('checkout-button');
     if (checkoutButton) {
-        checkoutButton.addEventListener('click', function() {
+        checkoutButton.addEventListener('click', () => {
             window.location.href = 'Checkoutpage.html'; // Redirect to the checkout page
         });
     }
@@ -141,8 +142,7 @@ function sortProductsByPrice() {
         return priceA - priceB;
     });
 
-    // Reorder products in the DOM
-    products.forEach(product => productGrid.appendChild(product));
+    products.forEach(product => productGrid.appendChild(product)); // Reorder products in the DOM
 }
 
 // Function to sort products alphabetically (A to Z)
@@ -156,8 +156,7 @@ function sortProductsByName() {
         return nameA.localeCompare(nameB);
     });
 
-    // Reorder products in the DOM
-    products.forEach(product => productGrid.appendChild(product));
+    products.forEach(product => productGrid.appendChild(product)); // Reorder products in the DOM
 }
 
 // Handle shipping cost calculations
@@ -227,86 +226,60 @@ const blogPosts = [
         title: "How to Choose the Right Laptop for Your Needs",
         date: "July 5, 2024",
         content: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice...",
-        fullContent: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice based on your needs, whether you're a gamer, a professional, or just need a basic machine for daily use...",
+        fullContent: "With so many options available, picking the right laptop can be a daunting task. Here are some tips to help you make the right choice based on your needs, whether you're a student, a professional, or a gamer...",
         comments: []
     }
 ];
 
-// Function to display blog posts
+// Display blog post summaries
 function displayBlogPosts() {
-    const blogPostsContainer = document.getElementById('blog-posts');
-    blogPostsContainer.innerHTML = '';
+    const blogContainer = document.getElementById('blog-posts');
+    if (!blogContainer) return;
 
-    blogPosts.forEach((post, index) => {
-        blogPostsContainer.innerHTML += `
-            <article class="blog-post">
-                <h2>${post.title}</h2>
-                <p><strong>Date:</strong> ${post.date}</p>
-                <p>${post.content}</p>
-                <button onclick="viewFullPost(${index})">Read More</button>
-            </article>
+    blogContainer.innerHTML = '';
+    blogPosts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.className = 'blog-post';
+        postElement.innerHTML = `
+            <h2>${post.title}</h2>
+            <p>${post.content}</p>
+            <small>${post.date}</small>
+            <button onclick="viewBlogPost('${post.title}')">Read More</button>
         `;
+        blogContainer.appendChild(postElement);
     });
 }
 
-// Function to display full blog post with comments
-function viewFullPost(postIndex) {
-    const post = blogPosts[postIndex];
-    const fullPostContainer = document.getElementById('full-post');
+// View full blog post
+function viewBlogPost(title) {
+    const blogPost = blogPosts.find(post => post.title === title);
+    const blogContainer = document.getElementById('blog-post-content');
     
-    if (fullPostContainer) {
-        fullPostContainer.innerHTML = `
-            <h2>${post.title}</h2>
-            <p><strong>Date:</strong> ${post.date}</p>
-            <p>${post.fullContent}</p>
-            <h3>Comments</h3>
-            <ul id="comments-list">
-                ${post.comments.map(comment => `<li>${comment}</li>`).join('')}
+    if (blogPost && blogContainer) {
+        blogContainer.innerHTML = `
+            <h2>${blogPost.title}</h2>
+            <small>${blogPost.date}</small>
+            <p>${blogPost.fullContent}</p>
+            <h3>Comments:</h3>
+            <ul id="comment-list">
+                ${blogPost.comments.map(comment => `<li>${comment}</li>`).join('')}
             </ul>
-            <input type="text" id="comment-input" placeholder="Write a comment..." />
-            <button onclick="addComment(${postIndex})">Add Comment</button>
-            <button onclick="goBackToBlogPosts()">Back to Blog</button>
+            <input type="text" id="comment-input" placeholder="Add a comment">
+            <button onclick="addComment('${blogPost.title}')">Submit Comment</button>
         `;
     }
 }
 
-// Function to add a comment to a blog post
-function addComment(postIndex) {
+// Add comment to a blog post
+function addComment(title) {
+    const blogPost = blogPosts.find(post => post.title === title);
     const commentInput = document.getElementById('comment-input');
-    const comment = commentInput.value.trim();
-
-    if (comment) {
-        blogPosts[postIndex].comments.push(comment);
-        viewFullPost(postIndex); // Refresh post to show new comment
-        commentInput.value = ''; // Clear comment input field
+    
+    if (blogPost && commentInput) {
+        blogPost.comments.push(commentInput.value);
+        viewBlogPost(blogPost.title);
     }
 }
 
-// Function to go back to the blog posts list
-function goBackToBlogPosts() {
-    const fullPostContainer = document.getElementById('full-post');
-    if (fullPostContainer) {
-        fullPostContainer.innerHTML = ''; // Clear full post view
-    }
-    displayBlogPosts(); // Show all blog posts
-}
-
-// Initialize blog posts display on page load
+// Initialize blog posts on page load
 document.addEventListener('DOMContentLoaded', displayBlogPosts);
-
-function toggleDropdown() {
-    document.getElementById("dropdown-content").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
