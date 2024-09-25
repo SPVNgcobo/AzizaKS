@@ -3,49 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AzizaKS-LTD - Gadget Store</title>
+    <title>AzizaKS-LTD - Premier Gadget Store</title>
     <link rel="icon" href="Aziza.jpg" type="image/jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="AzizaKS-LTD is a premier gadget store offering the latest in tech, from laptops to smartphones.">
+    <meta name="description" content="AzizaKS-LTD offers top-tier gadgets including smartphones, laptops, and more.">
 </head>
 <body>
-   <header>
-        <div class="header-left">
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-container">
             <a href="index.html">
-                <img src="Aziza.jpg" alt="AzizaKS-LTD Gadget Store Logo" id="logo">
+                <img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo">
             </a>
+
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="SignIn.html">Login</a></li>
+                    <li><a href="SignUp.html">Sign Up</a></li>
+                    <li><a href="Cartpage.html">Cart (0)</a></li>
+                    <li class="dropdown">
+                        <a href="#">My Account <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="AboutUspage.html">About Us</a>
+                            <a href="Wishlistpage.html">Wishlist</a>
+                            <a href="Shippingpage.html">Shipping</a>
+                            <a href="Blogpage.html">Blog</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
 
             <!-- Search Bar -->
             <div class="search-bar">
-                <input type="text" placeholder="Search for products..." id="search-input" aria-label="Search for products">
-                <button type="submit" id="search-button" aria-label="Search button">Search</button>
+                <input type="text" placeholder="Search for products..." id="search-input">
+                <button id="search-button"><i class="fas fa-search"></i></button>
             </div>
         </div>
-
-        <nav>
-            <ul>
-                <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon" aria-label="Cart page">Cart (0)</a></li>
-                <li class="dropdown">
-                    <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="AboutUspage.html" data-section="about">About Us</a>
-                        <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
-                        <a href="Shippingpage.html" data-section="shipping">Shipping</a>
-                        <a href="Blogpage.html" data-section="blog">Blog</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <!-- Cart Items Section -->
-        <section id="cart" class="cart-section">
-            <h1>Your Cart</h1>
-            <table id="cart-items-table">
+        <!-- Cart Section -->
+        <section id="cart-section">
+            <h1>Your Shopping Cart</h1>
+            <table id="cart-items">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -56,116 +61,88 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Cart items will be dynamically added here -->
+                    <!-- Dynamic Cart Content Here -->
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="3">Subtotal</td>
-                        <td id="subtotal">$0.00</td>
+                        <td id="cart-subtotal">$0.00</td>
                     </tr>
                     <tr>
                         <td colspan="3">Shipping</td>
-                        <td id="shipping-cost">$0.00</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">Estimated Tax</td>
-                        <td id="tax-cost">$0.00</td>
+                        <td id="cart-shipping">$0.00</td>
                     </tr>
                     <tr>
                         <td colspan="3">Total</td>
-                        <td id="total-cost">$0.00</td>
+                        <td id="cart-total">$0.00</td>
                     </tr>
                 </tfoot>
             </table>
-            <button id="continue-shopping" class="btn">Continue Shopping</button>
-            <button id="proceed-checkout" class="btn">Proceed to Checkout</button>
+            <div class="cart-actions">
+                <button id="continue-shopping" class="btn-secondary">Continue Shopping</button>
+                <button id="proceed-checkout" class="btn-primary">Proceed to Checkout</button>
+            </div>
         </section>
 
-        <!-- Shipping Information -->
-        <section id="shipping" class="shipping-section">
+        <!-- Shipping Form -->
+        <section id="shipping-section">
             <h2>Shipping Information</h2>
-            <form id="shipping-form" action="process_checkout.php" method="POST" autocomplete="on">
-                <label for="full-name">Full Name:</label>
+            <form id="shipping-form" action="checkout.php" method="POST">
+                <label for="full-name">Full Name</label>
                 <input type="text" id="full-name" name="full-name" required>
 
-                <label for="address">Address:</label>
+                <label for="address">Address</label>
                 <input type="text" id="address" name="address" required>
 
-                <label for="city">City:</label>
+                <label for="city">City</label>
                 <input type="text" id="city" name="city" required>
 
-                <label for="state">State:</label>
-                <input type="text" id="state" name="state" required>
-
-                <label for="zip">ZIP Code:</label>
+                <label for="zip">ZIP Code</label>
                 <input type="text" id="zip" name="zip" required>
 
-                <label for="country">Country:</label>
+                <label for="country">Country</label>
                 <input type="text" id="country" name="country" required>
 
-                <label for="phone">Phone:</label>
+                <label for="phone">Phone Number</label>
                 <input type="tel" id="phone" name="phone" required>
             </form>
         </section>
 
-        <!-- Payment Information -->
-        <section id="payment" class="payment-section">
+        <!-- Payment Section -->
+        <section id="payment-section">
             <h2>Payment Information</h2>
-            <form id="payment-form" action="process_payment.php" method="POST" autocomplete="on">
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" name="card-number" required pattern="\d{16}" placeholder="Enter 16-digit card number">
+            <form id="payment-form" action="payment.php" method="POST">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" required placeholder="1234 5678 9123 4567">
 
-                <label for="expiration">Expiration Date:</label>
-                <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/[0-9]{2}">
+                <label for="expiration">Expiration Date</label>
+                <input type="text" id="expiration" name="expiration" required placeholder="MM/YY">
 
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required pattern="\d{3}" placeholder="3-digit CVV">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required placeholder="123">
 
-                <button type="submit">Complete Purchase</button>
-            </form>
-        </section>
-
-        <!-- Coupon and Shipping Estimation -->
-        <section id="discount" class="discount-section">
-            <h2>Have a Discount Code?</h2>
-            <form id="discount-form" autocomplete="on">
-                <input type="text" id="discount-code" name="discount-code" placeholder="Enter discount code">
-                <button type="submit">Apply</button>
-            </form>
-
-            <h2>Estimate Your Shipping</h2>
-            <form id="estimate-shipping" autocomplete="on">
-                <label for="estimate-country">Country:</label>
-                <input type="text" id="estimate-country" name="estimate-country" required>
-                
-                <label for="estimate-zip">ZIP Code:</label>
-                <input type="text" id="estimate-zip" name="estimate-zip" required>
-
-                <button type="submit">Estimate Shipping</button>
+                <button type="submit" class="btn-primary">Complete Purchase</button>
             </form>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; <span id="year"></span> AzizaKS-LTD. All rights reserved.</p>
-        <p>Contact us:</p>
-        <ul class="contact-info">
-            <li>
-                <i class="fas fa-envelope"></i> <a href="mailto:info@AzizaKS.co.za">info@AzizaKS.co.za</a>
-            </li>
-        </ul>
-        <ul class="social-icons">
-            <li><a href="https://www.facebook.com/AzizaKS-LTD" aria-label="Visit our Facebook page" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://www.twitter.com/AzizaKS-LTD" aria-label="Visit our Twitter page" rel="noopener noreferrer" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.instagram.com/AzizaKS-LTD" aria-label="Visit our Instagram page" rel="noopener noreferrer" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/company/AzizaKS-LTD" aria-label="Visit our LinkedIn page" rel="noopener noreferrer" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> AzizaKS-LTD. All Rights Reserved.</p>
+            <p>Contact Us: <a href="mailto:info@AzizaKS.co.za">info@AzizaKS.co.za</a></p>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/AzizaKS-LTD" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/AzizaKS-LTD" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.twitter.com/AzizaKS-LTD" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
     </footer>
 
-   <script>
-       // Dynamic year update for copyright
-       document.getElementById("year").textContent = new Date().getFullYear();
-   </script>
-   <script src="app.js"></script>
+    <!-- JS for dynamic year -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>
