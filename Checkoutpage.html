@@ -11,33 +11,36 @@
 </head>
 <body>
    <header>
-    <div class="header-left">
-        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
+        <div class="header-left">
+            <a href="index.html">
+                <img src="Aziza.jpg" alt="AzizaKS-LTD Gadget Store Logo" id="logo">
+            </a>
 
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Search for products..." id="search-input">
-            <button type="submit" id="search-button">Search</button>
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="search-input" aria-label="Search for products">
+                <button type="submit" id="search-button" aria-label="Search button">Search</button>
+            </div>
         </div>
-    </div>
 
-    <nav>
-        <ul>  
-            <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-            <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
-            <li class="dropdown">
-                <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="AboutUspage.html" data-section="about">About Us</a>
-                    <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
-                    <a href="Shippingpage.html" data-section="shipping">Shipping</a>
-                    <a href="Blogpage.html" data-section="blog">Blog</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon" aria-label="Cart page">Cart (0)</a></li>
+                <li class="dropdown">
+                    <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="AboutUspage.html" data-section="about">About Us</a>
+                        <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
+                        <a href="Shippingpage.html" data-section="shipping">Shipping</a>
+                        <a href="Blogpage.html" data-section="blog">Blog</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
+
     <main>
         <!-- Cart Items Section -->
         <section id="cart" class="cart-section">
@@ -81,7 +84,7 @@
         <!-- Shipping Information -->
         <section id="shipping" class="shipping-section">
             <h2>Shipping Information</h2>
-            <form id="shipping-form" action="process_checkout.php" method="POST">
+            <form id="shipping-form" action="process_checkout.php" method="POST" autocomplete="on">
                 <label for="full-name">Full Name:</label>
                 <input type="text" id="full-name" name="full-name" required>
 
@@ -108,7 +111,7 @@
         <!-- Payment Information -->
         <section id="payment" class="payment-section">
             <h2>Payment Information</h2>
-            <form id="payment-form" action="process_payment.php" method="POST">
+            <form id="payment-form" action="process_payment.php" method="POST" autocomplete="on">
                 <label for="card-number">Card Number:</label>
                 <input type="text" id="card-number" name="card-number" required pattern="\d{16}" placeholder="Enter 16-digit card number">
 
@@ -125,13 +128,13 @@
         <!-- Coupon and Shipping Estimation -->
         <section id="discount" class="discount-section">
             <h2>Have a Discount Code?</h2>
-            <form id="discount-form">
+            <form id="discount-form" autocomplete="on">
                 <input type="text" id="discount-code" name="discount-code" placeholder="Enter discount code">
                 <button type="submit">Apply</button>
             </form>
 
             <h2>Estimate Your Shipping</h2>
-            <form id="estimate-shipping">
+            <form id="estimate-shipping" autocomplete="on">
                 <label for="estimate-country">Country:</label>
                 <input type="text" id="estimate-country" name="estimate-country" required>
                 
@@ -142,6 +145,7 @@
             </form>
         </section>
     </main>
+
     <footer>
         <p>&copy; <span id="year"></span> AzizaKS-LTD. All rights reserved.</p>
         <p>Contact us:</p>
