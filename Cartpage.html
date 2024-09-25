@@ -7,36 +7,40 @@
     <link rel="icon" href="Aziza.jpg" type="image/jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="AzizaKS-LTD is a premier gadget store offering the latest in tech, from laptops to smartphones.">
 </head>
 <body>
-   <header>
-    <div class="header-left">
-        <a href="index.html"><img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo"></a>
-
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Search for products..." id="search-input">
-            <button type="submit" id="search-button">Search</button>
+    <header>
+        <div class="header-left">
+            <a href="index.html">
+                <img src="Aziza.jpg" alt="AzizaKS-LTD Logo" id="logo">
+            </a>
+            
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products..." id="search-input" aria-label="Search for products">
+                <button type="submit" id="search-button" aria-label="Search button">Search</button>
+            </div>
         </div>
-    </div>
 
-    <nav>
-        <ul>  
-            <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-            <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-            <li><a href="Cartpage.html" id="cart-icon" class="cart-icon">Cart (0)</a></li>
-            <li class="dropdown">
-                <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="AboutUspage.html" data-section="about">About Us</a>
-                    <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
-                    <a href="Shippingpage.html" data-section="shipping">Shipping</a>
-                    <a href="Blogpage.html" data-section="blog">Blog</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="SignIn.html" data-section="signin"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="SignUp.html" data-section="signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                <li><a href="Cartpage.html" id="cart-icon" class="cart-icon" aria-label="Cart page">Cart (0)</a></li>
+                <li class="dropdown">
+                    <a href="Accountspage.html" class="dropbtn" data-section="account">My Account <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="AboutUspage.html" data-section="about">About Us</a>
+                        <a href="Wishlistpage.html" data-section="wishlist">Wishlist</a>
+                        <a href="Shippingpage.html" data-section="shipping">Shipping</a>
+                        <a href="Blogpage.html" data-section="blog">Blog</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
+
     <main>
         <!-- Cart Section -->
         <section class="cart">
@@ -57,12 +61,13 @@
             </table>
             <div class="cart-summary">
                 <p><strong>Total:</strong> R<span id="cart-total">0.00</span></p>
-                <button id="checkout-button" class="checkout-button">Proceed to Checkout</button>
+                <button id="checkout-button" class="checkout-button" aria-label="Proceed to checkout">Proceed to Checkout</button>
             </div>
         </section>
     </main>
-     <footer>
-        <p>&copy; 2024 AzizaKS-LTD. All rights reserved.</p>
+
+    <footer>
+        <p>&copy; <span id="year"></span> AzizaKS-LTD. All rights reserved.</p>
         <p>Contact us:</p>
         <ul class="contact-info">
             <li>
@@ -70,13 +75,17 @@
             </li>
         </ul>
         <ul class="social-icons">
-            <li><a href="https://www.facebook.com/AzizaKS-LTD" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://www.twitter.com/AzizaKS-LTD" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.instagram.com/AzizaKS-LTD" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/company/AzizaKS-LTD" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://www.facebook.com/AzizaKS-LTD" aria-label="Visit our Facebook page" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.twitter.com/AzizaKS-LTD" aria-label="Visit our Twitter page" rel="noopener noreferrer" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/AzizaKS-LTD" aria-label="Visit our Instagram page" rel="noopener noreferrer" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/AzizaKS-LTD" aria-label="Visit our LinkedIn page" rel="noopener noreferrer" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
     </footer>
 
-<script src="app.js"></script>
+    <script>
+        // Dynamic year update for copyright
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>
